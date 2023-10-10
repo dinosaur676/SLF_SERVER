@@ -1,0 +1,23 @@
+server:
+  port: 8390
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3307/leefood
+    username: root
+    password: root
+    hikari:
+      pool-name: SpringBootJdbcHikariCP
+      connection-timeout: 10000
+      validation-timeout: 10000
+      idle-timeout: 120000
+      maximum-pool-size: 2
+      minimum-idle: 1
+      max-lifetime: 580000
+  devtools:
+    livereload:
+      enabled: true
+  output:
+    ansi:
+      enabled: DETECT
