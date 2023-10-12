@@ -4,7 +4,8 @@ import com.example.framework.jdbc.JdbcCommand;
 import com.example.framework.jdbc.JdbcQuery;
 import com.example.slf.adapter.rdb.mapper.PriceRowMapper;
 import com.example.slf.adapter.rdb.sql.PriceSQL;
-import com.example.slf.dto.PriceDto;
+import com.example.slf.dto.Price;
+import com.example.slf.dto.request.price.PriceReqDto;
 import com.example.slf.repository.virtual.IPriceRepository;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Repository;
 public class PriceRepository implements IPriceRepository {
 
     private final JdbcCommand jdbcCommand;
-    private final JdbcQuery<PriceDto> jdbcQuery;
+    private final JdbcQuery<Price> jdbcQuery;
 
     public PriceRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcCommand = new JdbcCommand(jdbcTemplate);
@@ -21,17 +22,17 @@ public class PriceRepository implements IPriceRepository {
     }
 
     @Override
-    public PriceDto select(String create_on) {
-        return jdbcQuery.조회(PriceSQL.select, create_on);
+    public Price select(String name, String createdOn) {
+        return jdbcQuery.조회(PriceSQL.select, name, createdOn);
     }
 
     @Override
-    public void insert(PriceDto dto) {
-        jdbcCommand.실행(PriceSQL.insert, dto.getMarketPrice(), dto.getLoadingPrice(), dto.getLotPrice(), dto.getCreateOn());
+    public void insert(PriceReqDto dto) {
+        jdbcCommand.실행(PriceSQL.insert, dto.name(), dto.marketPrice(), dto.loadingPrice(), dto.lotPrice(), dto.createdOn());
     }
 
     @Override
-    public void update(PriceDto dto) {
-        jdbcCommand.실행(PriceSQL.update, dto.getMarketPrice(), dto.getLoadingPrice(), dto.getLotPrice(), dto.getCreateOn());
+    public void update(PriceReqDto dto) {
+        jdbcCommand.실행(PriceSQL.update, dto.marketPrice(), dto.loadingPrice(), dto.lotPrice(), dto.name(), dto.createdOn());
     }
 }

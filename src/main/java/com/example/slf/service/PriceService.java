@@ -1,7 +1,8 @@
 package com.example.slf.service;
 
-import com.example.slf.adapter.rdb.sql.PriceSQL;
-import com.example.slf.dto.PriceDto;
+import com.example.slf.dto.Price;
+import com.example.slf.dto.request.price.PriceReqDto;
+import com.example.slf.dto.response.price.PriceRespDto;
 import com.example.slf.repository.virtual.IPriceRepository;
 import com.example.slf.service.virtual.IPriceService;
 import org.springframework.stereotype.Service;
@@ -16,17 +17,23 @@ public class PriceService implements IPriceService {
     }
 
     @Override
-    public PriceDto select(String create_on) {
-        return priceRepository.select(create_on);
+    public PriceRespDto select(String name, String createdOn) {
+
+        Price dto = priceRepository.select(name, createdOn);
+
+        if(dto == null)
+            return null;
+
+        return PriceRespDto.create(dto);
     }
 
     @Override
-    public void insert(PriceDto dto) {
+    public void insert(PriceReqDto dto) {
         priceRepository.insert(dto);
     }
 
     @Override
-    public void update(PriceDto dto) {
+    public void update(PriceReqDto dto) {
         priceRepository.update(dto);
     }
 }

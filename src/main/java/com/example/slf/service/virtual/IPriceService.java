@@ -1,9 +1,10 @@
 package com.example.slf.service.virtual;
 
-import com.example.slf.dto.PriceDto;
+import com.example.slf.dto.request.price.PriceReqDto;
+import com.example.slf.dto.response.price.PriceRespDto;
 
 public interface IPriceService {
-    PriceDto select(String create_on);
-    void insert(PriceDto dto);
-    void update(PriceDto dto);
+    PriceRespDto select(String name, String createdOn);
+    void insert(PriceReqDto dto);
+    void update(PriceReqDto dto);
 }
