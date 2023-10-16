@@ -11,4 +11,5 @@ public interface ICompanyRepository {
     List<Company> selectByName(String name);
     void update(CompanyUpdateReqDto dto);
     void insert(CompanyReqDto dto);
+    void delete(CompanyReqDto dto);
 }

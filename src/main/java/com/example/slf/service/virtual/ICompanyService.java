@@ -12,4 +12,5 @@ public interface ICompanyService {
     List<CompanyRespDto> selectByName(String name);
     void update(CompanyUpdateReqDto dto);
     void insert(CompanyReqDto dto);
+    void delete(CompanyReqDto dto);
 }

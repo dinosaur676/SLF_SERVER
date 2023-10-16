@@ -38,4 +38,9 @@ public class CompanyService implements ICompanyService {
     public void insert(CompanyReqDto dto) {
         companyRepository.insert(dto);
     }
+
+    @Override
+    public void delete(CompanyReqDto dto) {
+        companyRepository.delete(dto);
+    }
 }

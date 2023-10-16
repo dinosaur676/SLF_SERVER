@@ -2,6 +2,7 @@ package com.example.slf.adapter.rdb.sql;
 
 public class BuySQL {
     static public final String select = "select * from buy where created_on = ?";
+    static public final String selectOne = "select * from buy where name = ? and buy_time = ? and size = ? and created_on = ?";
     static public final String insert = """
                 insert into buy(name, buy_time, size, count, price, created_on)
                 values(?, ?, ?, ?, ?, ?)

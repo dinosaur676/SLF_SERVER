@@ -31,7 +31,7 @@ public class CompanyRepository implements ICompanyRepository {
 
     @Override
     public List<Company> selectByName(String name) {
-        return jdbcQuery.목록조회(CompanySQL.selectByName, name);
+        return jdbcQuery.목록조회(CompanySQL.selectByName.formatted("%" + name + "%"));
     }
 
     @Override
@@ -42,5 +42,9 @@ public class CompanyRepository implements ICompanyRepository {
     @Override
     public void insert(CompanyReqDto dto) {
         jdbcCommand.실행(CompanySQL.insert, dto.name());
+    }
+    @Override
+    public void delete(CompanyReqDto dto) {
+        jdbcCommand.실행(CompanySQL.delete, dto.id());
     }
 }

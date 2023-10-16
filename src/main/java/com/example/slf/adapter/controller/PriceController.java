@@ -19,7 +19,7 @@ public class PriceController {
     }
 
     @GetMapping
-    public ResponseDto getInfo(@RequestParam String name, @RequestParam String createdOn) {
+    public ResponseDto getPrice(@RequestParam String name, @RequestParam String createdOn) {
         PriceRespDto dto = priceService.select(name, createdOn);
 
         if(dto == null)
@@ -28,16 +28,16 @@ public class PriceController {
         return new SuccessRespDto(dto, "성공");
     }
 
-    @PutMapping
-    public ResponseDto insert(@RequestBody PriceReqDto priceReqDto) {
-        priceService.insert(priceReqDto);
-
-        return new SuccessRespDto("성공");
-    }
 
     @PostMapping
-    public ResponseDto update(@RequestBody PriceReqDto priceReqDto) {
-        priceService.update(priceReqDto);
+    public ResponseDto updatePrice(@RequestBody PriceReqDto priceReqDto) {
+
+        PriceRespDto dto = priceService.select(priceReqDto.name(), priceReqDto.createdOn());
+
+        if(dto == null)
+            priceService.insert(priceReqDto);
+        else
+            priceService.update(priceReqDto);
 
         return new SuccessRespDto("성공");
     }

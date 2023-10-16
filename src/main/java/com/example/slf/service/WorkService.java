@@ -47,7 +47,7 @@ public class WorkService implements IWorkService {
         workRepository.update(dto);
     }
 
-    @Override 
+    @Override
     public void updateDate(UpdateDateReqDto dto) {
         workRepository.updateDate(dto);
     }
