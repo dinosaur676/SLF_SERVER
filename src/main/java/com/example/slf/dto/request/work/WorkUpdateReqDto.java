@@ -6,7 +6,8 @@ public record WorkUpdateReqDto(
         String workTime,
         int size,
         int count,
-        int price
+        int price,
+        int total
 ) {
 
 }

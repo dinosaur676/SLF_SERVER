@@ -9,6 +9,7 @@ public record WorkRespDto (
         int size,
         int count,
         int price,
+        int total,
         String createdOn
 ){
     static public WorkRespDto create(Work dto) {
@@ -19,6 +20,7 @@ public record WorkRespDto (
                 dto.getSize(),
                 dto.getCount(),
                 dto.getPrice(),
+                dto.getTotal(),
                 dto.getCreatedOn()
         );
     }

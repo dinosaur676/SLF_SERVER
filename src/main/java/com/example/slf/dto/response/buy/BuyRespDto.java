@@ -6,8 +6,10 @@ public record BuyRespDto (
         long id,
         String name,
         String buyTime,
+        int size,
         int count,
         int price,
+        int total,
         String createdOn
 ) {
     static public BuyRespDto create(Buy dto) {
@@ -15,8 +17,10 @@ public record BuyRespDto (
                 dto.getId(),
                 dto.getName(),
                 dto.getBuyTime(),
+                dto.getSize(),
                 dto.getCount(),
                 dto.getPrice(),
+                dto.getTotal(),
                 dto.getCreatedOn()
         );
     }

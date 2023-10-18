@@ -11,6 +11,8 @@ import java.util.List;
 public interface IWorkRepository {
     List<Work> select(String createdOn);
     Work selectById(long id);
+
+    List<Work> selectByBuyID(long buyId);
     void insert(WorkInsertReqDto dto);
     void update(WorkUpdateReqDto dto);
     void updateDate(UpdateDateReqDto dto);

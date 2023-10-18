@@ -11,6 +11,9 @@ import java.util.List;
 
 public interface IBuyService {
     List<BuyRespDto> select(String createdOn);
+
+    BuyRespDto selectOne(String name, String buyTime, int size, String createdOn);
+
     void insert(BuyInsertReqDto dto);
     void update(BuyUpdateReqDto dto);
     void updateDate(UpdateDateReqDto dto);

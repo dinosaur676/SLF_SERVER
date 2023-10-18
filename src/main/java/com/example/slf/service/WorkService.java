@@ -38,6 +38,11 @@ public class WorkService implements IWorkService {
     }
 
     @Override
+    public List<WorkRespDto> selectByBuyId(long buyId) {
+        return workRepository.selectByBuyID(buyId).stream().map(WorkRespDto::create).collect(Collectors.toList());
+    }
+
+    @Override
     public void insert(WorkInsertReqDto dto) {
         workRepository.insert(dto);
     }

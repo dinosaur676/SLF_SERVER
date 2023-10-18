@@ -4,13 +4,17 @@ import com.example.slf.util.StringHelper;
 
 public class SuccessRespDto extends ResponseDto {
     public SuccessRespDto() {
-        super();
-        //this(new Object(), "", "");
+        this("성공");
+    }
+
+    public SuccessRespDto(Object data) {
+        this(data, "성공");
     }
 
     public SuccessRespDto(String message) {
         this(null, message, "");
     }
+
 
     public SuccessRespDto(Object data, String message) {
         this(data, message, "");

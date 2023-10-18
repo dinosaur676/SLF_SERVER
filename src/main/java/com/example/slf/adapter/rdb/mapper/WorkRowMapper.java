@@ -17,6 +17,7 @@ public class WorkRowMapper implements RowMapper<Work> {
                 rs.getInt("size"),
                 rs.getInt("count"),
                 rs.getInt("price"),
+                rs.getInt("total"),
                 rs.getString("created_on")
         );
     }

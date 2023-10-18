@@ -2,10 +2,11 @@ package com.example.slf.dto.request.buy;
 
 public record BuyUpdateReqDto(
         long id,
-        String name,
+        String buyName,
         String buyTime,
         int size,
         int count,
-        int price
+        int price,
+        int total
 ) {
 }

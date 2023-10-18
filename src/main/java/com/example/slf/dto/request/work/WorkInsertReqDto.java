@@ -6,6 +6,8 @@ public record WorkInsertReqDto(
         int size,
         int count,
         int price,
-        String createdOn
+        int total,
+        String createdOn,
+        long buyId
 ) {
 }

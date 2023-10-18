@@ -17,6 +17,7 @@ public class BuyRowMapper implements RowMapper<Buy> {
                 rs.getInt("size"),
                 rs.getInt("count"),
                 rs.getInt("price"),
+                rs.getInt("total"),
                 rs.getString("created_on")
         );
     }

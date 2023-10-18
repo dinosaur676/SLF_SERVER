@@ -38,13 +38,18 @@ public class WorkRepository implements IWorkRepository {
     }
 
     @Override
+    public List<Work> selectByBuyID(long buyId) {
+        return jdbcQuery.목록조회(WorkSQL.selectByBuyID, buyId);
+    }
+
+    @Override
     public void insert(WorkInsertReqDto dto) {
-        jdbcCommand.실행(WorkSQL.insert, dto.name(), dto.workTime(), dto.size(), dto.count(), dto.price(), dto.createdOn());
+        jdbcCommand.실행(WorkSQL.insert, dto.name(), dto.workTime(), dto.size(), dto.count(), dto.price(), dto.total(), dto.createdOn(), dto.buyId());
     }
 
     @Override
     public void update(WorkUpdateReqDto dto) {
-        jdbcCommand.실행(WorkSQL.update, dto.name(), dto.workTime(), dto.size(), dto.count(), dto.price(), dto.id());
+        jdbcCommand.실행(WorkSQL.update, dto.name(), dto.workTime(), dto.size(), dto.count(), dto.price(), dto.total(), dto.id());
 
     }
 

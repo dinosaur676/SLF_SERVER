@@ -12,6 +12,7 @@ import java.util.List;
 public interface IWorkService {
     List<WorkRespDto> select(String createdOn);
     WorkRespDto selectById(long id);
+    List<WorkRespDto> selectByBuyId(long buyId);
     void insert(WorkInsertReqDto dto);
     void update(WorkUpdateReqDto dto);
     void updateDate(UpdateDateReqDto dto);

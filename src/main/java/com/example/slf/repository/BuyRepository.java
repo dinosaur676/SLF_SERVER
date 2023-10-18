@@ -32,13 +32,18 @@ public class BuyRepository implements IBuyRepository {
     }
 
     @Override
+    public Buy selectOne(String name, String buyTime, int size, String createdOn) {
+        return jdbcQuery.조회(BuySQL.selectOne, name, buyTime, size, createdOn);
+    }
+
+    @Override
     public void insert(BuyInsertReqDto dto) {
-        jdbcCommand.실행(BuySQL.insert, dto.name(), dto.buyTime(), dto.size(), dto.count(), dto.price(), dto.createdOn());
+        jdbcCommand.실행(BuySQL.insert, dto.buyName(), dto.buyTime(), dto.size(), dto.count(), dto.price(), dto.total(), dto.createdOn());
     }
 
     @Override
     public void update(BuyUpdateReqDto dto) {
-        jdbcCommand.실행(BuySQL.update, dto.name(), dto.buyTime(), dto.size(), dto.count(), dto.price(), dto.id());
+        jdbcCommand.실행(BuySQL.update, dto.buyName(), dto.buyTime(), dto.size(), dto.count(), dto.price(), dto.total(), dto.id());
     }
 
     @Override
