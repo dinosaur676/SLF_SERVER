@@ -7,11 +7,11 @@ public class Work {
     int size;
     int count;
     int price;
-
     int total;
     String createdOn;
+    long buyId;
 
-    public Work(long id, String name, String workTime, int size, int count, int price, int total, String createdOn) {
+    public Work(long id, String name, String workTime, int size, int count, int price, int total, String createdOn, long buyId) {
         this.id = id;
         this.name = name;
         this.workTime = workTime;
@@ -20,6 +20,11 @@ public class Work {
         this.price = price;
         this.total = total;
         this.createdOn = createdOn;
+        this.buyId = buyId;
+    }
+
+    public long getBuyId() {
+        return buyId;
     }
 
     public int getTotal() {

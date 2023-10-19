@@ -12,6 +12,8 @@ public interface IBuyRepository {
     List<Buy> select(String createdOn);
 
     Buy selectOne(String name, String buyTime, int size, String createdOn);
+
+    Buy selectById(long id);
     void insert(BuyInsertReqDto dto);
     void update(BuyUpdateReqDto dto);
     void updateDate(UpdateDateReqDto dto);

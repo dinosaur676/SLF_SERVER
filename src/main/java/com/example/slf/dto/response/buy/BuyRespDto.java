@@ -10,7 +10,8 @@ public record BuyRespDto (
         int count,
         int price,
         int total,
-        String createdOn
+        String createdOn,
+        int workCount
 ) {
     static public BuyRespDto create(Buy dto) {
         return new BuyRespDto(
@@ -21,7 +22,8 @@ public record BuyRespDto (
                 dto.getCount(),
                 dto.getPrice(),
                 dto.getTotal(),
-                dto.getCreatedOn()
+                dto.getCreatedOn(),
+                dto.getWorkCount()
         );
     }
 }

@@ -10,7 +10,9 @@ public class Buy {
     int total;
     String createdOn;
 
-    public Buy(long id, String name, String buyTime, int size, int count, int price, int total, String createdOn) {
+    int workCount;
+
+    public Buy(long id, String name, String buyTime, int size, int count, int price, int total, String createdOn, int workCount) {
         this.id = id;
         this.name = name;
         this.buyTime = buyTime;
@@ -19,6 +21,11 @@ public class Buy {
         this.price = price;
         this.total = total;
         this.createdOn = createdOn;
+        this.workCount = workCount;
+    }
+
+    public int getWorkCount() {
+        return workCount;
     }
 
     public int getTotal() {

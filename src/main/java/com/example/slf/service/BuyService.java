@@ -38,6 +38,16 @@ public class BuyService implements IBuyService {
     }
 
     @Override
+    public BuyRespDto selectById(long id) {
+        Buy buy = buyRepository.selectById(id);
+
+        if(buy == null)
+            return null;
+
+        return BuyRespDto.create(buy);
+    }
+
+    @Override
     public void insert(BuyInsertReqDto dto) {
         buyRepository.insert(dto);
     }

@@ -14,6 +14,7 @@ public interface IBuyService {
 
     BuyRespDto selectOne(String name, String buyTime, int size, String createdOn);
 
+    BuyRespDto selectById(long id);
     void insert(BuyInsertReqDto dto);
     void update(BuyUpdateReqDto dto);
     void updateDate(UpdateDateReqDto dto);

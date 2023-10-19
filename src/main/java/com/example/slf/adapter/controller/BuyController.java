@@ -38,6 +38,16 @@ public class BuyController {
         return new SuccessRespDto(buyRespDtoList);
     }
 
+    @GetMapping("/id")
+    public ResponseDto getBuyDataById(@RequestParam long id) {
+        BuyRespDto buyRespDto = buyService.selectById(id);
+
+        if(buyRespDto == null)
+            return new SuccessRespDto();
+
+        return new SuccessRespDto(buyRespDto);
+    }
+
     @PutMapping
     public ResponseDto insertData(@RequestBody BuyInsertReqDto buyInsertReqDto) {
         buyService.insert(buyInsertReqDto);

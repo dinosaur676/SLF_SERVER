@@ -10,7 +10,8 @@ public record WorkRespDto (
         int count,
         int price,
         int total,
-        String createdOn
+        String createdOn,
+        long buyId
 ){
     static public WorkRespDto create(Work dto) {
         return new WorkRespDto(
@@ -21,7 +22,8 @@ public record WorkRespDto (
                 dto.getCount(),
                 dto.getPrice(),
                 dto.getTotal(),
-                dto.getCreatedOn()
+                dto.getCreatedOn(),
+                dto.getBuyId()
         );
     }
 }

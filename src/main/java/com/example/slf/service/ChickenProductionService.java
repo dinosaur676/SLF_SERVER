@@ -1,5 +1,6 @@
 package com.example.slf.service;
 
+import com.example.slf.dto.request.chicken.production.ChickenProductionDeleteDto;
 import com.example.slf.dto.request.chicken.production.ChickenProductionInsertDto;
 import com.example.slf.dto.request.chicken.production.ChickenProductionUpdateDto;
 import com.example.slf.dto.response.chicken.production.ChickenProductionRespDto;
@@ -30,8 +31,8 @@ public class ChickenProductionService implements IChickenProductionService {
     }
 
     @Override
-    public void delete(int id) {
-        chickenProductionRepository.delete(id);
+    public void delete(ChickenProductionDeleteDto dto) {
+        chickenProductionRepository.delete(dto);
     }
 
     @Override

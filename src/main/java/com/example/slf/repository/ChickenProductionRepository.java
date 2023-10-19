@@ -5,6 +5,7 @@ import com.example.framework.jdbc.JdbcQuery;
 import com.example.slf.adapter.rdb.mapper.ChickenProductionRowMapper;
 import com.example.slf.adapter.rdb.sql.ChickenProductionSQL;
 import com.example.slf.dto.ChickenProduction;
+import com.example.slf.dto.request.chicken.production.ChickenProductionDeleteDto;
 import com.example.slf.dto.request.chicken.production.ChickenProductionInsertDto;
 import com.example.slf.dto.request.chicken.production.ChickenProductionUpdateDto;
 import com.example.slf.repository.virtual.IChickenProductionRepository;
@@ -36,8 +37,8 @@ public class ChickenProductionRepository implements IChickenProductionRepository
     }
 
     @Override
-    public void delete(int id) {
-        jdbcCommand.실행(ChickenProductionSQL.delete, id);
+    public void delete(ChickenProductionDeleteDto dto) {
+        jdbcCommand.실행(ChickenProductionSQL.delete, dto.id());
     }
 
     @Override
