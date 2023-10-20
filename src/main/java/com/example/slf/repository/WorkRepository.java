@@ -3,14 +3,15 @@ package com.example.slf.repository;
 import com.example.framework.jdbc.JdbcCommand;
 import com.example.framework.jdbc.JdbcQuery;
 import com.example.slf.adapter.rdb.mapper.WorkRowMapper;
+import com.example.slf.adapter.rdb.sql.ChickenSellSQL;
 import com.example.slf.adapter.rdb.sql.WorkSQL;
 import com.example.slf.dto.Work;
-import com.example.slf.dto.request.UpdateDateReqDto;
+import com.example.slf.dto.request.date.DeleteDateReqDto;
+import com.example.slf.dto.request.date.UpdateDateReqDto;
 import com.example.slf.dto.request.work.WorkDeleteReqDto;
 import com.example.slf.dto.request.work.WorkInsertReqDto;
 import com.example.slf.dto.request.work.WorkUpdateReqDto;
 import com.example.slf.repository.virtual.IWorkRepository;
-import org.springframework.boot.autoconfigure.batch.BatchProperties;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -61,5 +62,10 @@ public class WorkRepository implements IWorkRepository {
     @Override
     public void delete(WorkDeleteReqDto dto) {
         jdbcCommand.실행(WorkSQL.delete, dto.id());
+    }
+
+    @Override
+    public void deleteDate(DeleteDateReqDto dto) {
+        jdbcCommand.실행(WorkSQL.deleteDate, dto.createdOn());
     }
 }

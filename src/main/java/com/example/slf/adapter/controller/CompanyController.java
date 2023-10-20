@@ -34,14 +34,21 @@ public class CompanyController {
 
     @PostMapping
     public ResponseDto updateCompany(@RequestBody CompanyUpdateReqDto dto) {
-        companyService.update(dto);
+        CompanyRespDto respDto = companyService.selectOne(dto.after());
+
+        if(respDto == null)
+            companyService.update(dto);
+
 
         return new SuccessRespDto("성공");
     }
 
     @PutMapping
     public ResponseDto insertCompany(@RequestBody CompanyReqDto dto) {
-        companyService.insert(dto);
+        CompanyRespDto respDto = companyService.selectOne(dto.name());
+
+        if(respDto == null)
+            companyService.insert(dto);
 
         return new SuccessRespDto("성공");
     }

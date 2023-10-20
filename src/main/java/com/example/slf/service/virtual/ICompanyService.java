@@ -10,6 +10,8 @@ import java.util.List;
 public interface ICompanyService {
     List<CompanyRespDto> select();
     List<CompanyRespDto> selectByName(String name);
+
+    CompanyRespDto selectOne(String name);
     void update(CompanyUpdateReqDto dto);
     void insert(CompanyReqDto dto);
     void delete(CompanyReqDto dto);

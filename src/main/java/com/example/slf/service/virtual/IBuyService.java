@@ -1,7 +1,7 @@
 package com.example.slf.service.virtual;
 
-import com.example.slf.dto.Buy;
-import com.example.slf.dto.request.UpdateDateReqDto;
+import com.example.slf.dto.request.date.DeleteDateReqDto;
+import com.example.slf.dto.request.date.UpdateDateReqDto;
 import com.example.slf.dto.request.buy.BuyDeleteReqDto;
 import com.example.slf.dto.request.buy.BuyInsertReqDto;
 import com.example.slf.dto.request.buy.BuyUpdateReqDto;
@@ -19,4 +19,5 @@ public interface IBuyService {
     void update(BuyUpdateReqDto dto);
     void updateDate(UpdateDateReqDto dto);
     void delete(BuyDeleteReqDto dto);
+    void deleteDate(DeleteDateReqDto dto);
 }

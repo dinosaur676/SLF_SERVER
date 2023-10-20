@@ -5,7 +5,8 @@ import com.example.framework.jdbc.JdbcQuery;
 import com.example.slf.adapter.rdb.mapper.BuyRowMapper;
 import com.example.slf.adapter.rdb.sql.BuySQL;
 import com.example.slf.dto.Buy;
-import com.example.slf.dto.request.UpdateDateReqDto;
+import com.example.slf.dto.request.date.DeleteDateReqDto;
+import com.example.slf.dto.request.date.UpdateDateReqDto;
 import com.example.slf.dto.request.buy.BuyDeleteReqDto;
 import com.example.slf.dto.request.buy.BuyInsertReqDto;
 import com.example.slf.dto.request.buy.BuyUpdateReqDto;
@@ -59,5 +60,10 @@ public class BuyRepository implements IBuyRepository {
     @Override
     public void delete(BuyDeleteReqDto dto) {
         jdbcCommand.실행(BuySQL.delete, dto.id());
+    }
+
+    @Override
+    public void deleteDate(DeleteDateReqDto dto) {
+        jdbcCommand.실행(BuySQL.deleteDate, dto.createdOn());
     }
 }

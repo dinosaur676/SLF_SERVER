@@ -1,7 +1,8 @@
 package com.example.slf.service;
 
 import com.example.slf.dto.Work;
-import com.example.slf.dto.request.UpdateDateReqDto;
+import com.example.slf.dto.request.date.DeleteDateReqDto;
+import com.example.slf.dto.request.date.UpdateDateReqDto;
 import com.example.slf.dto.request.work.WorkDeleteReqDto;
 import com.example.slf.dto.request.work.WorkInsertReqDto;
 import com.example.slf.dto.request.work.WorkUpdateReqDto;
@@ -60,5 +61,9 @@ public class WorkService implements IWorkService {
     @Override
     public void delete(WorkDeleteReqDto dto) {
         workRepository.delete(dto);
+    }
+    @Override
+    public void deleteDate(DeleteDateReqDto dto) {
+        workRepository.deleteDate(dto);
     }
 }

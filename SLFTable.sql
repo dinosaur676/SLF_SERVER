@@ -2,7 +2,7 @@ CREATE DATABASE  IF NOT EXISTS `leefood` /*!40100 DEFAULT CHARACTER SET utf8mb4 
 USE `leefood`;
 -- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: leefood
+-- Host: localhost    Database: leefood
 -- ------------------------------------------------------
 -- Server version	8.0.22
 
@@ -34,18 +34,8 @@ CREATE TABLE `buy` (
   `total` int NOT NULL,
   `created_on` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `buy`
---
-
-LOCK TABLES `buy` WRITE;
-/*!40000 ALTER TABLE `buy` DISABLE KEYS */;
-INSERT INTO `buy` VALUES (1,'다경','2023-10-11',12,1000,460,460000,'2023-10-18'),(2,'다경','2023-10-11',12,1000,460,460000,'2023-10-18'),(3,'다경','2023-10-11',12,100,460,46000,'2023-10-18');
-/*!40000 ALTER TABLE `buy` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `chicken_production`
@@ -64,17 +54,8 @@ CREATE TABLE `chicken_production` (
   `type` varchar(45) NOT NULL,
   `created_on` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=149 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=178 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `chicken_production`
---
-
-LOCK TABLES `chicken_production` WRITE;
-/*!40000 ALTER TABLE `chicken_production` DISABLE KEYS */;
-/*!40000 ALTER TABLE `chicken_production` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `chicken_sell`
@@ -91,18 +72,11 @@ CREATE TABLE `chicken_sell` (
   `price` int NOT NULL,
   `total` int NOT NULL,
   `created_on` varchar(45) NOT NULL,
+  `type` varchar(45) NOT NULL,
+  `prod_id` bigint NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `chicken_sell`
---
-
-LOCK TABLES `chicken_sell` WRITE;
-/*!40000 ALTER TABLE `chicken_sell` DISABLE KEYS */;
-/*!40000 ALTER TABLE `chicken_sell` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `company`
@@ -115,18 +89,8 @@ CREATE TABLE `company` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `company`
---
-
-LOCK TABLES `company` WRITE;
-/*!40000 ALTER TABLE `company` DISABLE KEYS */;
-INSERT INTO `company` VALUES (6,'다경'),(7,'더조은'),(8,'엄청긴이름테스트'),(9,'ㅁ'),(10,'ㅁㄴ'),(11,'ㅁㄴㅇㄹ'),(12,'ㅁㄴㅇㄹㄹ'),(13,'ㅁㅇㅁ'),(14,'ㅂ'),(15,'ㅈ'),(16,'ㄷ'),(17,'ㄱ'),(18,'ㅅ'),(19,'ㅛ'),(20,'ㅕ');
-/*!40000 ALTER TABLE `company` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `price`
@@ -147,16 +111,6 @@ CREATE TABLE `price` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `price`
---
-
-LOCK TABLES `price` WRITE;
-/*!40000 ALTER TABLE `price` DISABLE KEYS */;
-INSERT INTO `price` VALUES (1,'추가',100,100,100,'2023-10-18'),(2,'추가',150,100,100,'2023-10-10'),(3,'추가',150,100,100,'2023-10-11'),(4,'다경',100,100,100,'2023-10-11');
-/*!40000 ALTER TABLE `price` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `work`
 --
 
@@ -174,18 +128,8 @@ CREATE TABLE `work` (
   `buy_id` bigint NOT NULL,
   `total` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `work`
---
-
-LOCK TABLES `work` WRITE;
-/*!40000 ALTER TABLE `work` DISABLE KEYS */;
-INSERT INTO `work` VALUES (2,'더조은','2023-10-17',12,100,100,'2023-10-18',1,10000),(6,'ㅁ','2023-10-16',12,100,100,'2023-10-18',2,10000),(7,'ㅁㄴㅇㄹ','2023-10-17',12,100,100,'2023-10-18',2,10000),(8,'엄청긴이름테스트','2023-10-17',12,100,100,'2023-10-18',2,10000),(9,'ㅁㄴㅇㄹ','2023-10-16',12,100,100,'2023-10-18',2,10000),(10,'ㅁㄴㅇㄹㄹ','2023-10-17',12,150,100,'2023-10-18',1,15000);
-/*!40000 ALTER TABLE `work` ENABLE KEYS */;
-UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -196,4 +140,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-10-19 17:49:49
+-- Dump completed on 2023-10-20 11:18:55

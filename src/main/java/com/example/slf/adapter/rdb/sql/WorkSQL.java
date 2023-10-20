@@ -21,4 +21,6 @@ public class WorkSQL {
                 where created_on = ?
             """;
     static public final String delete = "delete from work where id = ?";
+
+    static public final String deleteDate = "delete from buy where created_on = ?";
 }

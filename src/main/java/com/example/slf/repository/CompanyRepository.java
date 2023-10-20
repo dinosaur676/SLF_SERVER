@@ -35,6 +35,11 @@ public class CompanyRepository implements ICompanyRepository {
     }
 
     @Override
+    public Company selectOne(String name) {
+        return jdbcQuery.조회(CompanySQL.selectOne, name);
+    }
+
+    @Override
     public void update(CompanyUpdateReqDto dto) {
         jdbcCommand.실행(CompanySQL.update, dto.after(), dto.before());
     }

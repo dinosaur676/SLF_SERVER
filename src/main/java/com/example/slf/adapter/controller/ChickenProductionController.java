@@ -10,6 +10,7 @@ import com.example.slf.service.virtual.IChickenProductionService;
 import org.apache.coyote.Response;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -23,13 +24,30 @@ public class ChickenProductionController {
     }
 
     @GetMapping
-    public ResponseDto getDatas(@RequestParam String parts, @RequestParam String createdOn) {
-        List<ChickenProductionRespDto> chickenProductionRespDtoList = productionService.selectAll(parts, createdOn);
+    public ResponseDto getDatas(@RequestParam(required = false) String parts, @RequestParam String createdOn) {
+        List<ChickenProductionRespDto> chickenProductionRespDtoList;
+
+        if(parts == null || parts.equals("")) {
+            chickenProductionRespDtoList = productionService.selectJustDate(createdOn);
+        }
+        else {
+            chickenProductionRespDtoList = productionService.selectAll(parts, createdOn);
+        }
 
         if(chickenProductionRespDtoList == null)
             return new SuccessRespDto();
 
         return new SuccessRespDto(chickenProductionRespDtoList);
+    }
+
+    @GetMapping("/id")
+    public ResponseDto getDataById(@RequestParam long id) {
+        ChickenProductionRespDto chickenProductionRespDto = productionService.selectById(id);
+
+        if(chickenProductionRespDto == null)
+             return new SuccessRespDto();
+
+        return new SuccessRespDto(chickenProductionRespDto);
     }
 
     @PutMapping

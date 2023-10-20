@@ -1,5 +1,6 @@
 package com.example.slf.service;
 
+import com.example.slf.dto.Company;
 import com.example.slf.dto.request.company.CompanyReqDto;
 import com.example.slf.dto.request.company.CompanyUpdateReqDto;
 import com.example.slf.dto.response.company.CompanyRespDto;
@@ -27,6 +28,16 @@ public class CompanyService implements ICompanyService {
     @Override
     public List<CompanyRespDto> selectByName(String name) {
         return companyRepository.selectByName(name).stream().map(CompanyRespDto::create).collect(Collectors.toList());
+    }
+
+    @Override
+    public CompanyRespDto selectOne(String name) {
+        Company company = companyRepository.selectOne(name);
+
+        if(company == null)
+            return null;
+
+        return CompanyRespDto.create(company);
     }
 
     @Override

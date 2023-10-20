@@ -9,6 +9,7 @@ import java.util.List;
 public interface ICompanyRepository {
     List<Company> select();
     List<Company> selectByName(String name);
+    Company selectOne(String name);
     void update(CompanyUpdateReqDto dto);
     void insert(CompanyReqDto dto);
     void delete(CompanyReqDto dto);

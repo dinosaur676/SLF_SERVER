@@ -1,4 +1,4 @@
-package com.example.slf.dto.request;
+package com.example.slf.dto.request.date;
 
 public record UpdateDateReqDto(
         String before,

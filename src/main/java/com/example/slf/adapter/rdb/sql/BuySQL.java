@@ -42,4 +42,6 @@ public class BuySQL {
             """;
     static public final String delete = "delete from buy where id = ?";
 
+    static public final String deleteDate = "delete from buy where created_on = ?";
+
 }
